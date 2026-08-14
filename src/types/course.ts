@@ -11,6 +11,7 @@ export interface Course {
   refundable: boolean
 }
 
+export type CountryCode = "IN" | "US"
 
 export interface CountryResponse {
   country_code: CountryCode
