@@ -5,6 +5,7 @@ import { fetchCourses, fetchCountryCode } from "@/lib/api"
 import { CourseGrid } from "@/components/CourseGrid"
 import { CourseCard } from "@/components/CourseCard"
 import { CourseCardSkeleton } from "@/components/CourseCardSkeleton"
+import { RetryButton } from "@/components/RetryButton"
 import "./CourseSection.css"
 interface CourseSectionProps {
   headingText: string
@@ -62,7 +63,21 @@ export function CourseSection({ headingText, accentColor }: CourseSectionProps) 
         </CourseGrid>
       ) : null}
 
-             {courseState.status === "loaded" && courseState.data.length > 0 ? (
+      {courseState.status === "error" ? (
+        <div className="course-section-message">
+          <p>Couldn't load courses right now. This API fails on purpose sometimes.</p>
+          <RetryButton label="Try again" onRetry={handleRetry} />
+        </div>
+      ) : null}
+
+      {courseState.status === "loaded" && courseState.data.length === 0 ? (
+        <div className="course-section-message">
+          <p>No courses are live at the moment. Check back shortly.</p>
+          <RetryButton label="Check again" onRetry={handleRetry} />
+        </div>
+      ) : null}
+
+      {courseState.status === "loaded" && courseState.data.length > 0 ? (
         <CourseGrid>
           {courseState.data.map((course) => (
             <CourseCard
