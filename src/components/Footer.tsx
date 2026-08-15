@@ -1,4 +1,4 @@
-import { theme } from "@/lib/theme"
+import "./Footer.css"
 
 export function Footer() {
   return (
@@ -9,7 +9,6 @@ export function Footer() {
         <a href="#contact">Contact</a>
       </nav>
       <p className="footer-copyright">© {new Date().getFullYear()} Skillpath. All rights reserved.</p>
-      
     </footer>
   )
 }

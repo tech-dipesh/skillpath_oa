@@ -1,5 +1,6 @@
 import type { Course, CountryCode } from "@/types/course"
 import { formatCoursePrice } from "@/lib/currency"
+import "./CourseCard.css"
 
 interface CourseCardProps {
   course: Course

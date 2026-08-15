@@ -1,5 +1,5 @@
 import type { MouseEvent } from "react"
-import { theme } from "@/lib/theme"
+import "./RetryButton.css"
 
 interface RetryButtonProps {
   label: string

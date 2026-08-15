@@ -1,5 +1,5 @@
 .hero {
-  background: var(--bakckground);
+  background: var(--background);
   padding: 96px 24px 64px;
   display: flex;
   flex-direction: column;
@@ -23,7 +23,6 @@
 .hero-button {
   margin-top: 12px;
   background: var(--accent);
-  background: var(--bakckground);
   border: none;
   border-radius: 8px;
   padding: 12px 24px;
